@@ -1,0 +1,61 @@
+<div class='container-login'>
+  <div class='form-login-container shadow'>
+    <div class='left'>
+      <img src="../../../assets/imgs/logo-white.svg"
+           width="50px"
+           class='mb-default logo-login mb-default' alt='Logo'/>
+      <button class='button secondary'
+              (click)="toggleLogin()">
+        {{getLabel(!showLogin)}}
+      </button>
+    </div>
+    <div class='right'>
+      <form [formGroup]="showLogin?formLogin:formRegister" (ngSubmit)="submit()">
+        <div class="row" *ngIf="!showLogin">
+          <div class="col-md-12 mb-default">
+            <input-content label="Nome" [control]="getControl('name')">
+              <input class="input"
+                     formControlName="name"
+                     required
+                     maxlength="200"
+                     type="text">
+            </input-content>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 mb-default">
+            <input-content label="E-mail" [control]="getControl('email')">
+              <input class="input"
+                     formControlName="email"
+                     maxlength="200"
+                     required
+                     type="email">
+            </input-content>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-1 mb-default">
+            <input-content label="Senha"  [control]="getControl('password')">
+              <input class="input"
+                     formControlName="password"
+                     type="password"
+                     maxlength="50"
+                     required>
+            </input-content>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-1 mb-default">
+            <button class="button primary" type="submit" [disabled]="loading">
+              {{getLabel(showLogin)}}
+            </button>
+          </div>
+        </div>
+      </form>
+
+      <div class='link primary text-center mobile-show' (click)="toggleLogin()">
+        {{getLabel(!showLogin)}}
+      </div>
+    </div>
+  </div>
+</div>

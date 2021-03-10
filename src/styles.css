@@ -1,1 +1,260 @@
-/* You can add global styles to this file, and also import other style files */
+
+:root {
+  --primaryColor: #2d4f6e;
+  --secondaryColor: #4c4c4c;
+  --dangerColor: #c0392b;
+  --contentColor: #ECECEC;
+  --whiteColor: #ffffff;
+  --radius: 3px;
+}
+
+
+#root {
+  display: flex;
+  flex: 1;
+  background: var(--contentColor);
+  width: 100%;
+  position: fixed;
+  height: 100%;
+}
+
+.container-main {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  background: var(--contentColor);
+  display: flex;
+}
+
+@font-face {
+  font-family: RalewayRegular;
+  src: url('./assets/fonts/Ralewey/Raleway-Regular.ttf');
+}
+
+@font-face {
+  font-family: RalewayMedium;
+  src: url('./assets/fonts/Ralewey/Raleway-Medium.ttf');
+}
+
+@font-face {
+  font-family: RalewaySemiBold;
+  src: url('./assets/fonts/Ralewey/Raleway-SemiBold.ttf');
+}
+
+@font-face {
+  font-family: RalewaySemiBold;
+  src: url('./assets/fonts/Ralewey/Raleway-Bold.ttf');
+}
+
+@font-face {
+  font-family: RalewayLightItalic;
+  src: url('./assets/fonts/Ralewey/Raleway-LightItalic.ttf');
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: RalewayRegular;
+  margin: 0;
+  padding: 0;
+}
+
+.shadow {
+  -webkit-box-shadow: 0px 0px 36px -30px rgba(0, 0, 0, 0.75) !important;
+  -moz-box-shadow: 0px 0px 36px -30px rgba(0, 0, 0, 0.75) !important;
+  box-shadow: 0px 0px 36px -30px rgba(0, 0, 0, 0.75) !important;
+}
+
+.label {
+  font-weight: bold;
+  color: var(--secondaryColor);
+  font-size: 15px;
+  font-family: RalewaySemiBold;
+}
+
+.input-content {
+  width: 100%;
+}
+
+.input {
+  padding: 10px;
+  background-color: var(--contentColor);
+  border: 0;
+  outline: none;
+  height: 25px;
+  font-size: 15px;
+  color: var(--secondaryColor);
+  border-radius: var(--radius);
+  width: 100%;
+}
+
+
+.w-100 {
+  width: 100%;
+}
+
+.button {
+  padding: 10px;
+  text-align: center;
+  border-radius: 100px;
+  border: 0;
+  outline: none;
+  width: 100%;
+  cursor: pointer;
+  font-size: 15px;
+  outline: none;
+  border: none;
+}
+
+.button.primary {
+  background-color: var(--primaryColor);
+  color: white;
+  font-family: RalewaySemiBold;
+}
+
+.button.danger {
+  background-color: var(--dangerColor);
+  color: white;
+  font-family: RalewaySemiBold;
+}
+
+.button.secondary {
+  background-color: var(--whiteColor);
+  color: var(--primaryColor);
+  font-family: RalewaySemiBold;
+}
+
+.button:hover {
+@extend . shadow;
+}
+
+.mb-default {
+  margin-bottom: 10px;
+}
+
+
+.link {
+  cursor: pointer;
+  font-weight: bold;
+  outline: none;
+}
+
+.link.primary {
+  color: var(--primary);
+}
+
+.text-center {
+  text-align: center;
+}
+
+
+.content-white {
+  display: flex;
+  flex: 1;
+  background-color: var(--whiteColor);
+  padding: 10px;
+  border-radius: 10px;
+  flex-direction: column;
+  overflow: auto;
+}
+
+.title-page {
+  color: var(--secondaryColor);
+}
+
+.optional {
+  font-family: RalewayLightItalic;
+}
+
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+
+.column {
+  padding: 10px;
+  display: flex;
+  flex: 1;
+}
+
+.swal2-modal {
+  padding: 0px !important;
+}
+
+.swal2-modal .swal2-content {
+  padding: 0 !important;
+}
+
+.dialog-alert {
+  padding: 10px;
+}
+
+.dialog-alert .footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.dialog-alert .title {
+  text-align: left;
+  font-family: RalewaySemiBold;
+}
+
+.dialog-alert .text-message {
+  min-height: 90px;
+  text-align: left;
+  padding-top: 10px;
+}
+
+.dialog-alert .btn-ok {
+  border: 0;
+  outline: none;
+  border-radius: var(--radius);
+  padding: 7px;
+  min-width: 58px;
+  background: var(--primaryColor);
+  color: var(--whiteColor);
+  cursor: pointer;
+}
+
+.dialog-alert .header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.dialog-alert .icon-close {
+  width: 24px;
+  height: 24px;
+  background-color: var(--primaryColor);
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2px;
+  color: var(--whiteColor);
+  border-radius: 100%;
+}
+
+.dialog-alert .btn-cancel {
+  margin-left: 10px;
+  border: 0;
+  outline: none;
+  border-radius: var(--radius);
+  padding: 7px;
+  min-width: 58px;
+  background: var(--primaryColor);
+  color: var(--whiteColor);
+}
