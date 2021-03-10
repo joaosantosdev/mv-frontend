@@ -45,7 +45,7 @@ export class InputContentComponent implements OnInit {
 
   }
 
-  getControl(): any{
+  getControl(): any {
     return this.control ? this.control : {};
   }
 

@@ -1,0 +1,130 @@
+.container-dashboard {
+  background-color: var(--contentColor);
+  display: flex;
+  flex: 1;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+
+}
+
+
+.navbar {
+  height: 50px;
+  background-color: var(--primaryColor);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px;
+}
+
+.navbar .toggle {
+  width: 40px;
+  height: 50px;
+  cursor: pointer;
+}
+
+.navbar .logo-navbar {
+  width: 130px;
+}
+
+
+.container-sidebar {
+  width: 250px;
+  background-color: var(--whiteColor);
+  padding: 5px;
+  transition: 0.2s margin-left ease-in;
+  z-index: 101;
+
+
+}
+
+
+.bg-sidebar {
+  background: rgba(0, 0, 0, 0.4);
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+  display: none;
+}
+
+.open-sidebar {
+  margin-left: 0 !important;
+}
+
+.container-sidebar .content-logo {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container-sidebar .logo-sidebar {
+  width: 70%;
+  margin-top: 10px;
+}
+
+.content {
+  display: flex;
+  flex: 1;
+  background-color: var(--contentColor);
+  flex-direction: column;
+}
+
+.content-main {
+  display: flex;
+  flex: 1;
+  background-color: var(--contentColor);
+  flex-direction: column;
+  overflow: auto;
+  padding: 10px;
+}
+
+.container-sidebar .items {
+  display: flex;
+  flex-direction: column;
+  margin-top: 50px;
+}
+
+.container-sidebar .message {
+  font-size: 25px;
+  padding: 10px;
+  text-align: center;
+  color: var(--primaryColor);
+}
+
+.container-sidebar .items .item {
+  display: flex;
+  margin-bottom: 13px;
+  padding: 2px;
+  cursor: pointer;
+  flex-direction: row;
+}
+
+.container-sidebar .items .item .label {
+  margin-left: 10px;
+  color: var(--primaryColor);
+}
+
+
+.container-sidebar .items .item.active .label {
+  color: var(--secondaryColor);
+}
+
+
+.dashboard-info {
+  text-align: center;
+}
+
+@media only screen and (max-width: 730px) {
+  .container-sidebar {
+    margin-left: -270px;
+    position: fixed;
+    height: 100%;
+  }
+
+  .bg-sidebar {
+    display: block;
+  }
+}

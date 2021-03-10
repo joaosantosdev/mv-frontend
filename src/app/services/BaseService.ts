@@ -11,7 +11,7 @@ export default class BaseService {
 
   headers = new HttpHeaders({
     'Content-Type': 'application/json',
-    Authorization: Utils.getToken()
+    Authorization: 'Bearer ' + Utils.getToken()
   });
 
   constructor(private http: HttpClient) {
@@ -55,6 +55,14 @@ export default class BaseService {
 
   public postSecurity(url, body): Promise<any> {
     return this.http.post(this.baseUrl + url, JSON.stringify(body), {
+      headers: this.headers
+    }).toPromise();
+
+  }
+
+
+  public deleteSecurity(url): Promise<any> {
+    return this.http.delete(this.baseUrl + url, {
       headers: this.headers
     }).toPromise();
 

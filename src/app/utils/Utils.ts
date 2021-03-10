@@ -13,4 +13,21 @@ export default class Utils {
       controls[key].markAsDirty();
     });
   }
+
+  public static formatParams(params): string {
+    if (!params) {
+      return '';
+    }
+    let vReturn = '?';
+    let i = 0;
+    Object.keys(params).map(key => {
+      if (i !== 0) {
+        vReturn += '&';
+      }
+      vReturn += key + '=' + params[key];
+      i++;
+      return key;
+    });
+    return vReturn;
+  }
 }

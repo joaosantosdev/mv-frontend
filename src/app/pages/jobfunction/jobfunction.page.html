@@ -1,0 +1,77 @@
+<div class="content-white" style="min-height: 300px">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12 mb-3">
+        <h1 class="title-page">Cargos</h1>
+      </div>
+    </div>
+    <form [formGroup]="form" (ngSubmit)="submit()">
+      <div class="row">
+        <div class="col-md-3 mb-2">
+          <input-content label="Nome" [control]="form.get('name')">
+            <input class="input" formControlName="name">
+          </input-content>
+        </div>
+        <div class="col-md-3 mb-2">
+          <input-content label="Descrição" [control]="form.get('description')">
+            <input class="input" formControlName="description">
+          </input-content>
+        </div>
+        <div class="col-md-3 mb-2">
+          <input-content label="Status" [control]="form.get('status')">
+            <select-search [options]="listStatus"
+                           field="label"
+                           [model]="form.get('status').value"
+                           (change)="changeStatus($event)"
+                           id="id">
+
+            </select-search>
+          </input-content>
+        </div>
+        <div class="col-md-3 d-flex align-items-end mb-2">
+          <button class="button primary" type="submit">Salvar</button>
+        </div>
+      </div>
+    </form>
+    <div class="row">
+      <div class="col-md-9 mb-2">
+        <input-content label="Pesquisar">
+          <input class="input" [(ngModel)]="searchText" placeholder="Nome">
+        </input-content>
+      </div>
+      <div class="col-md-3 d-flex align-items-end mb-2">
+        <button class="button primary"
+                (click)="search()"
+        >Pesquisar
+        </button>
+      </div>
+    </div>
+    <table class="table">
+      <thead>
+      <tr>
+        <th>Nome</th>
+        <th>Descrição</th>
+        <th>Status</th>
+
+      </tr>
+      <tr *ngFor="let item of list">
+        <td>{{item.name}}</td>
+        <td>{{item.description}}</td>
+        <td>{{item.status | status}}</td>
+        <td>
+          <img src='../../../assets/imgs/icon-edit.svg'
+               alt='Atualizar cargo'
+               class="c-pointer"
+               (click)="edit(item)"
+               width="20px"/>
+          <img src='../../../assets/imgs/icon-trash.svg'
+               alt='Excluir cargo'
+               class="c-pointer"
+               (click)="delete(item)"
+               width="20px"/>
+        </td>
+      </tr>
+      </thead>
+    </table>
+  </div>
+</div>

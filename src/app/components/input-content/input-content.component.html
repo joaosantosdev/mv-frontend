@@ -1,4 +1,4 @@
-<div class="input-content" [ngClass]="{error:getControl().errors && getControl().dirty}">
+<div class="input-content" style="display: flex;flex-direction: column" [ngClass]="{error:getControl().errors && getControl().dirty}">
   <div class="label" *ngIf="label !== null">
     {{label}}
     <span *ngIf="opcional"

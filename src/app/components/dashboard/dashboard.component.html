@@ -1,0 +1,30 @@
+<div class='container-dashboard'>
+  <div [class]="{'bg-sidebar':isOpenSidebar}"
+       (click)="toggleSidebar()"></div>
+
+  <div class="container-sidebar" [class]="{'open-sidebar':isOpenSidebar}">
+    <div class="content-logo">
+      <img src="../../../assets/imgs/logo.svg" class='logo-sidebar' alt='Logo'/>
+    </div>
+    <div class='message mb-default'>Seja bem vindo</div>
+    <div class='items'>
+      <div class='item' *ngFor="let item of items">
+        <img width="20px"
+             [src]="'../../../assets/imgs/'+item.icon+'.svg'"/>
+        <div class='label'>{{item.label}}</div>
+      </div>
+
+    </div>
+  </div>
+  <div class='content'>
+    <div class='navbar  shadow'>
+      <img src="../../../assets/imgs/icon-menu.svg" class='toggle mobile-show'
+           (click)="toggleSidebar()"
+           alt='Abrir menu'/>
+    </div>
+    <div class='content-main '>
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>
+

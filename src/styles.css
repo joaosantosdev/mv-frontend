@@ -77,7 +77,7 @@ body {
 }
 
 .input {
-  padding: 10px;
+  padding: 20px !important;
   background-color: var(--contentColor);
   border: 0;
   outline: none;
@@ -125,7 +125,9 @@ body {
 }
 
 .button:hover {
-@extend . shadow;
+  -webkit-box-shadow: 0px 0px 36px -30px rgba(0, 0, 0, 0.75) !important;
+  -moz-box-shadow: 0px 0px 36px -30px rgba(0, 0, 0, 0.75) !important;
+  box-shadow: 0px 0px 36px -30px rgba(0, 0, 0, 0.75) !important;
 }
 
 .mb-default {
@@ -257,4 +259,52 @@ body {
   min-width: 58px;
   background: var(--primaryColor);
   color: var(--whiteColor);
+}
+
+.mobile-show {
+  display: none !important;
+}
+
+@media (max-width: 730px) {
+  .mobile-show {
+    display: block !important;
+  }
+}
+
+
+@media (max-width: 996px) {
+  thead {
+    display: none;
+  }
+
+  tr, td, th {
+    display: block;
+    width: 100%;
+  }
+
+  tr {
+    margin-bottom: 20px;
+    border-radius: var(--radius);
+
+  }
+
+  td::before {
+    content: attr(data-label);
+    display: flex;
+    color: var(--secondaryColor);
+    font-weight: bold;
+    flex-direction: column;
+  }
+
+  td {
+    text-align: left;
+  }
+}
+
+td, th {
+  color: var(--secondaryColor);
+}
+
+.c-pointer{
+  cursor: pointer;
 }
