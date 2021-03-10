@@ -1,27 +1,51 @@
-# MvFronEnd
+# Desafio MV - Frontend
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.2.
 
-## Development server
+### Framework
+* Angular / Typescript
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+### Acesse 
+## http://desafiomv.ourmind.com.br/login
 
-## Code scaffolding
+#### Desafio  
+* Desenvolver uma aplicação que realize cadastro e visualização de estabelecimentos e profissionais.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+#### Atenção
+* Configurar o env corretamente com o backend
 
-## Build
+### Rodar a aplicação
+```
+npm install
+ng server --port 4200
+```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+### Algumas Fotinhas :)
+Tela de Login           |  Mobile
+:-------------------------:|:-------------------------:
+![](https://user-images.githubusercontent.com/46445331/110668491-20d22b00-81aa-11eb-8844-779398e9e234.png)  |  ![](https://user-images.githubusercontent.com/46445331/110666639-452d0800-81a8-11eb-9d33-e5e381dcd64d.jpeg)
 
-## Running unit tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Cargo         |  Mobile
+:-------------------------:|:-------------------------:
+![](https://user-images.githubusercontent.com/46445331/110668489-20399480-81aa-11eb-98e3-180e09827d25.png)  |  ![](https://user-images.githubusercontent.com/46445331/110666621-41998100-81a8-11eb-9c3e-f93144defdbf.jpeg)
 
-## Running end-to-end tests
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+Cadastro de profissionais       |  Mobile
+:-------------------------:|:-------------------------:
+![](https://user-images.githubusercontent.com/46445331/110668480-1e6fd100-81aa-11eb-93c7-b67960dddc68.png)  |  ![](https://user-images.githubusercontent.com/46445331/110666630-43fbdb00-81a8-11eb-9364-3b58baf8b49a.jpeg)
 
-## Further help
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+
+
+
+Visualização de estabelecimentos      |  Mobile
+:-------------------------:|:-------------------------:
+![](https://user-images.githubusercontent.com/46445331/110668490-20399480-81aa-11eb-83f6-dd5b189d2b9d.png)  |  ![](https://user-images.githubusercontent.com/46445331/110666634-44947180-81a8-11eb-8ec6-1f74e8273182.jpeg)
+
+
+
+
+
+
+
