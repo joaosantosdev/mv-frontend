@@ -15,7 +15,7 @@ export class ProfessionalListPage implements OnInit {
     size: 5,
     page: 0,
     fisrt: true,
-    last: false
+    last: true
   };
 
   constructor(private professionalService: ProfessionalService, private router: Router) {
