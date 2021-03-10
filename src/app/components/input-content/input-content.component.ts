@@ -7,8 +7,8 @@ import {Component, OnInit, Input} from '@angular/core';
 })
 export class InputContentComponent implements OnInit {
   public messagesErrors: any = {
-    email: 'Email invalido',
-    required: 'Campo obrigatorio',
+    email: 'Email inválido',
+    required: 'Campo obrigatório',
     passwordDistinct: 'Senha incorreta'
   };
   @Input()

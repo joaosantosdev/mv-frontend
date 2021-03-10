@@ -1,0 +1,156 @@
+<div class="content-white form" >
+  <form [formGroup]="form" class="container-fluid" (ngSubmit)="submit()">
+    <div class="row">
+      <div class="col-md-12">
+        <h1 class="title-page">{{title}}</h1>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4 mb-2">
+        <input-content label="Nome" [control]="getControl('name')">
+          <input class="input" formControlName="name"
+                 maxlength="250"
+                 required="required">
+        </input-content>
+      </div>
+      <div class="col-md-4 mb-2">
+        <input-content label="E-mail" [control]="getControl('email')">
+          <input class="input" formControlName="email"
+                 maxlength="150"
+                 type="email"
+                 required="required">
+        </input-content>
+      </div>
+      <div class="col-md-4 mb-2">
+        <input-content label="Status" [control]="getControl('status')">
+          <select-search [options]="listStatus"
+                         field="label"
+                         [model]="getControl('status').value"
+                         (change)="changeStatus($event)"
+                         keyName="id">
+          </select-search>
+        </input-content>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4 mb-2">
+        <input-content label="Cargo" [control]="getControl('jobFunctionId')">
+          <select-search [options]="listJobFunctions"
+                         field="name"
+                         (change)="changeJobFunction($event)"
+                         [model]="getControl('jobFunctionId').value"
+                         keyName="id">
+          </select-search>
+        </input-content>
+      </div>
+      <div class="col-md-4 mb-2">
+        <input-content label="Estado" [control]="getControlAddress('stateId')">
+          <select-search [options]="listStates"
+                         field="name"
+                         [model]="getControlAddress('stateId').value"
+                         (change)="changeState($event)"
+                         keyName="id">
+          </select-search>
+        </input-content>
+      </div>
+      <div class="col-md-4 mb-2">
+        <input-content label="Cidade" [control]="getControlAddress('cityId')">
+          <select-search [options]="listCities"
+                         [model]="getControlAddress('cityId').value"
+                         field="name"
+                         (change)="changeCity($event)"
+                         keyName="id">
+          </select-search>
+        </input-content>
+      </div>
+
+    </div>
+    <div class="row" formGroupName="address">
+      <div class="col-md-4 mb-2">
+        <input-content label="Bairro" [control]="getControlAddress('district')">
+          <input class="input" formControlName="district"
+                 required="required"
+                 maxlength="150">
+        </input-content>
+      </div>
+      <div class="col-md-4 mb-2">
+        <input-content label="Rua" [control]="getControlAddress('street')"
+                       required="required"
+                       maxlength="150">
+          <input class="input" formControlName="street">
+        </input-content>
+      </div>
+      <div class="col-md-4 mb-2">
+        <input-content label="Número" [control]="getControlAddress('number')">
+          <input class="input" formControlName="number"
+                 required="required"
+                 maxlength="25">
+        </input-content>
+      </div>
+    </div>
+    <div class="row" *ngFor="let group of establishmentsArray.controls;let i = index" [formGroup]="group">
+      <div class="col-md-8 mb-2">
+        <input-content label="Estabelecimento">
+          <select-search [options]="listEstablishments"
+                         field="name"
+                         [model]="group.get('id').value"
+                         (change)="changeEstablishment($event,group)"
+                         keyName="id">
+          </select-search>
+        </input-content>
+      </div>
+      <div class="col-md-4 mb-2 d-flex  align-items-center">
+
+        <button type="button"
+                (click)="addEstablishment()"
+                *ngIf="i+1 === establishmentsArray.controls.length"
+                style="margin-right:10px;"
+                class="button primary d-flex justify-content-center align-items-center add-delete">+
+        </button>
+
+        <button type="button"
+                (click)="deleteEstablishment(i)"
+                *ngIf="establishmentsArray.controls.length > 1"
+                class="button danger d-flex justify-content-center align-items-center add-delete">-
+        </button>
+      </div>
+    </div>
+    <div class="row" *ngFor="let group of phonesArray.controls;let i = index" [formGroup]="group">
+      <div class="col-md-4 mb-2">
+        <input-content label="Tipo telefone" [control]="group.get('residential')">
+          <select-search [options]="listTypesPhone"
+                         field="label"
+                         [model]="group.get('residential').value"
+                         (change)="changePhoneResidential($event,group)"
+                         keyName="id">
+          </select-search>
+        </input-content>
+      </div>
+      <div class="col-md-4">
+        <input-content label="Número" [control]="group.get('number')">
+          <input class="input" formControlName="number">
+        </input-content>
+      </div>
+      <div class="col-md-4 d-flex  align-items-center mb-2">
+
+        <button type="button"
+                style="margin-right:10px;"
+                *ngIf="i+1 == phonesArray.controls.length"
+                class="button primary d-flex justify-content-center align-items-center add-delete"
+                (click)="addPhone()">+
+        </button>
+
+        <button type="button"
+                *ngIf="phonesArray.controls.length > 1"
+                class="button danger d-flex justify-content-center align-items-center add-delete"
+                (click)="deletePhone(i)">-
+        </button>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4">
+        <button class="button primary" type="submit" [disabled]="loading">Salvar</button>
+      </div>
+    </div>
+  </form>
+</div>

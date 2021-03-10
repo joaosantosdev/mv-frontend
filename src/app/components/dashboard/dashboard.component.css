@@ -20,7 +20,7 @@
 
 .navbar .toggle {
   width: 40px;
-  height: 50px;
+  height: 40px;
   cursor: pointer;
 }
 
@@ -109,7 +109,7 @@
 
 
 .container-sidebar .items .item.active .label {
-  color: var(--secondaryColor);
+  color: var(--successColor);
 }
 
 

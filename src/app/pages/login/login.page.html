@@ -4,12 +4,15 @@
       <img src="../../../assets/imgs/logo-white.svg"
            width="50px"
            class='mb-default logo-login mb-default' alt='Logo'/>
-      <button class='button secondary'
+            <button [disabled]="loading" class='button secondary'
               (click)="toggleLogin()">
         {{getLabel(!showLogin)}}
       </button>
     </div>
     <div class='right'>
+      <img src="../../../assets/imgs/logo.svg"
+           width="50px"
+           class='mb-default logo-login mb-default mobile-show' alt='Logo'/>
       <form [formGroup]="showLogin?formLogin:formRegister" (ngSubmit)="submit()">
         <div class="row" *ngIf="!showLogin">
           <div class="col-md-12 mb-default">
@@ -53,7 +56,7 @@
         </div>
       </form>
 
-      <div class='link primary text-center mobile-show' (click)="toggleLogin()">
+      <div class='link success text-center mobile-show' (click)="toggleLogin()">
         {{getLabel(!showLogin)}}
       </div>
     </div>

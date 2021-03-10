@@ -26,7 +26,7 @@ export class JobfunctionPage implements OnInit {
       id: [obj ? obj.id : null],
       name: [obj.name ? obj.name : null, Validators.required],
       description: [obj.name ? obj.name : null, Validators.required],
-      status: [obj.status ? obj.status : null, Validators.required],
+      status: [obj.status ? obj.status : Const.status.ACTIVE, Validators.required],
     });
   }
 

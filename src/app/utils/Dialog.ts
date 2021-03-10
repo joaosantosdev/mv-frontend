@@ -57,7 +57,7 @@ export class Dialog {
                 <div class="dialog-alert">
                             <div class="${classHeader}">
                                 <div class="title">${getTitle()}</div>
-                                <div class="icon-close" onclick="window.closeDialogAlert(true)">X</div>
+                                <div class="icon-close" onclick="window.closeDialogAlert(false)">X</div>
                             </div>
                             <div class="${classBody}">
                                ${getTextMessage()}

@@ -1,4 +1,4 @@
-<div class="content-white" style="min-height: 300px">
+<div class="content-white form" >
   <div class="container-fluid">
     <div class="row">
       <div class="col-md-12 mb-3">
@@ -9,12 +9,17 @@
       <div class="row">
         <div class="col-md-3 mb-2">
           <input-content label="Nome" [control]="form.get('name')">
-            <input class="input" formControlName="name">
+            <input class="input" formControlName="name"
+                   maxlength="100"
+                   required="required">
           </input-content>
         </div>
         <div class="col-md-3 mb-2">
           <input-content label="Descrição" [control]="form.get('description')">
-            <input class="input" formControlName="description">
+            <input class="input"
+                   formControlName="description"
+                   maxlength="200"
+                   required="required">
           </input-content>
         </div>
         <div class="col-md-3 mb-2">
@@ -23,7 +28,7 @@
                            field="label"
                            [model]="form.get('status').value"
                            (change)="changeStatus($event)"
-                           id="id">
+                           keyName="id">
 
             </select-search>
           </input-content>
@@ -52,13 +57,16 @@
         <th>Nome</th>
         <th>Descrição</th>
         <th>Status</th>
+        <th>Opções</th>
 
       </tr>
+      </thead>
+      <tbody>
       <tr *ngFor="let item of list">
-        <td>{{item.name}}</td>
-        <td>{{item.description}}</td>
-        <td>{{item.status | status}}</td>
-        <td>
+        <td data-label="Nome">{{item.name}}</td>
+        <td data-label="Descrição">{{item.description}}</td>
+        <td data-label="Status">{{item.status | status}}</td>
+        <td data-label="Opções">
           <img src='../../../assets/imgs/icon-edit.svg'
                alt='Atualizar cargo'
                class="c-pointer"
@@ -71,7 +79,8 @@
                width="20px"/>
         </td>
       </tr>
-      </thead>
+      </tbody>
+
     </table>
   </div>
 </div>

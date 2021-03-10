@@ -1,4 +1,6 @@
 import {Component, OnInit} from '@angular/core';
+import Utils from '../../utils/Utils';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'dashboard-component',
@@ -7,17 +9,16 @@ import {Component, OnInit} from '@angular/core';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor() {
+  constructor(private router: Router) {
   }
 
-  public isOpenSidebar = true;
+  public isOpenSidebar = false;
 
   public items = [
-    {label: 'Cargo', icon: 'icon_job'},
-    {label: 'Profissional', icon: 'icon_professional'},
-    {label: 'Estabelecimento', icon: 'icon_establishment'},
-    {label: 'Sair', icon: 'logout'},
-
+    {label: 'Cargos', icon: 'icon_job', path: 'cargos', pathForm: 'cargo'},
+    {label: 'Profissionais', icon: 'icon_professional', path: 'profissionais', pathForm: 'profissional'},
+    {label: 'Estabelecimentos', icon: 'icon_establishment', path: 'estabelecimentos', pathForm: 'estabelecimento'},
+    {label: 'Sair', icon: 'logout', path: 'sair'},
   ];
 
   ngOnInit(): void {
@@ -25,5 +26,18 @@ export class DashboardComponent implements OnInit {
 
   toggleSidebar(): void {
     this.isOpenSidebar = !this.isOpenSidebar;
+  }
+
+  clickItem(item): void {
+    if (item.path === 'sair') {
+      Utils.deleteToken();
+      this.router.navigate([`/login`]);
+    } else {
+      this.router.navigate([item.path]);
+    }
+  }
+
+  itemActive(item): boolean {
+    return this.router.url.includes(item.path) || this.router.url.includes(item.pathForm);
   }
 }

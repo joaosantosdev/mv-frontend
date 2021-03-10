@@ -14,7 +14,8 @@ export class SelectSearchComponent implements OnInit {
 
   @Input()
   set model(val: any) {
-    const items = this.options.filter(item => item[this.id] === val);
+
+    const items = this.options.filter(item => item[this.keyName] === val);
     if (items.length > 0) {
       this.value = items[0][this.field];
       this.search = this.value;
@@ -39,7 +40,7 @@ export class SelectSearchComponent implements OnInit {
   field;
 
   @Input()
-  id;
+  keyName;
 
 
   public isOpen = false;
@@ -65,7 +66,7 @@ export class SelectSearchComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    const items = this.options.filter(item => item[this.id] === this.model);
+    const items = this.options.filter(item => item[this.keyName] === this.model);
     if (items.length > 0) {
       this.value = items[0][this.field];
       this.search = this.value;
@@ -83,13 +84,13 @@ export class SelectSearchComponent implements OnInit {
   }
 
   onChange(item): void {
-    this.model = item[this.id];
+    this.model = item[this.keyName];
     this.value = item[this.field];
     this.search = this.value;
     this.activeSearch = false;
     this.isOpen = false;
-    this.modelChange.emit(item[this.id]);
-    this.change.emit(item[this.id]);
+    this.modelChange.emit(item[this.keyName]);
+    this.change.emit(item[this.keyName]);
 
   }
 

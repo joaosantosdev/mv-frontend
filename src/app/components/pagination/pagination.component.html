@@ -1,0 +1,17 @@
+<div class="row">
+  <div class="col-md-12 justify-content-center align-items-center d-flex">
+    <nav aria-label="Page navigation example">
+      <ul class="pagination">
+        <li (click)="previous()" [ngClass]="{disabled:paginator.first}" class="page-item c-pointer">
+          <div class="page-link">Anterior</div>
+        </li>
+        <li class="page-item c-pointer">
+          <div class="page-link">{{paginator.page+1}}</div>
+        </li>
+        <li (click)="next()" [ngClass]="{disabled:paginator.last}" class="page-item c-pointer">
+          <div class="page-link">Próxima</div>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</div>

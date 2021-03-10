@@ -3,6 +3,7 @@ import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import Utils from '../../utils/Utils';
 import UserService from '../../services/UserService';
 import {Dialog} from '../../utils/Dialog';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'login-page',
@@ -16,7 +17,7 @@ export class LoginPage implements OnInit {
   public formRegister: FormGroup;
   public loading = false;
 
-  constructor(private builder: FormBuilder, private userService: UserService) {
+  constructor(private builder: FormBuilder, private userService: UserService, private router: Router) {
   }
 
   ngOnInit(): void {
@@ -54,6 +55,7 @@ export class LoginPage implements OnInit {
       this.cleanForm();
       if (key === 'login') {
         Utils.setToken(response.data);
+        this.router.navigate(['/cargos']);
       }
     }).catch(error => {
       Dialog.info({message: error.error.data});

@@ -3,6 +3,10 @@ export default class Utils {
     localStorage.setItem('token', token);
   }
 
+  public static deleteToken(): void {
+    localStorage.removeItem('token');
+  }
+
   public static getToken(): string {
     return localStorage.getItem('token');
   }

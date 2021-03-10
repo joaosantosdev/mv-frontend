@@ -1,0 +1,55 @@
+<div class="content-white" style="min-height: 500px;padding-bottom: 20px;">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12 mb-2">
+        <h1 class="title-page">Profissionais</h1>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6 mb-2">
+        <input-content label="Pesquisar">
+          <input class="input" [(ngModel)]="searchText">
+        </input-content>
+      </div>
+      <div class="col-md-3 d-flex align-items-end mb-2">
+        <button class="button primary" (click)="search()">Pesquisar</button>
+      </div>
+      <div class="col-md-3 d-flex align-items-end mb-2">
+        <button class="button primary" (click)="new()">Novo</button>
+      </div>
+    </div>
+    <table class="table">
+      <thead>
+      <tr>
+        <th>Nome</th>
+        <th>E-mail</th>
+        <th>Status</th>
+        <th>Opções</th>
+
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let item of list">
+        <td data-label="Nome">{{item.name}}</td>
+        <td data-label="E-mail">{{item.email}}</td>
+        <td data-label="Status">{{item.status | status}}</td>
+        <td data-label="Opções">
+          <img src='../../../../assets/imgs/icon-edit.svg'
+               alt='Atualizar cargo'
+               class="c-pointer"
+               (click)="edit(item)"
+               width="20px"/>
+          <img src='../../../../assets/imgs/icon-trash.svg'
+               style="margin-left: 10px"
+               alt='Excluir cargo'
+               class="c-pointer"
+               (click)="delete(item)"
+               width="20px"/>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+    <pagination [paginator]="pagination"
+                (change)="changePagination($event)"></pagination>
+  </div>
+</div>

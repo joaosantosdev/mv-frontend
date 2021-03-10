@@ -8,12 +8,14 @@
     </div>
     <div class='message mb-default'>Seja bem vindo</div>
     <div class='items'>
-      <div class='item' *ngFor="let item of items">
+      <div class='item'
+           [class]="{'active':itemActive(item)}"
+           (click)="clickItem(item)"
+           *ngFor="let item of items">
         <img width="20px"
-             [src]="'../../../assets/imgs/'+item.icon+'.svg'"/>
+             [src]="'../../../assets/imgs/'+item.icon+(itemActive(item)?'_active':'')+'.svg'"/>
         <div class='label'>{{item.label}}</div>
       </div>
-
     </div>
   </div>
   <div class='content'>
